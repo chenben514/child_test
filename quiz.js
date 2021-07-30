@@ -110,7 +110,7 @@ var quiz = {
       // radio.id = "quizo" + i;
       // quiz.hAns.appendChild(radio);
       let label = document.createElement("label");
-      label.innerHTML = "<p>"+singQuesArr[quiz.ansList[i]]+"<p>";
+      label.innerHTML = singQuesArr[quiz.ansList[i]];
       quiz.ansString[i]=singQuesArr[quiz.ansList[i]];
       label.setAttribute("for", "quizo" + i);
       label.dataset.idx = i;
