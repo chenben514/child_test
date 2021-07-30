@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <title>
+      測驗網頁
+    </title>
+
+    <!-- (A) LOAD QUIZ CSS + JS -->
+    <link href="quiz.css?v=<?=time()?" rel="stylesheet">
+    <script src="quiz.js"></script>
+  </head>
+  <body>
+    <!-- (B) QUIZ CONTAINER -->
+    <div id="quizHeader">
+    <table  border="1" cellpadding="5" style="position:relative;border:2px #00DBDB solid;text-align:rignt;right:0;">
+    <tr>
+      <td>
+    <select id="category" class="styled-select" onchange="quiz.select_change()">
+        <option value="math_multi" class="service-small">十十乘法</option>
+        <option value="english" class="service-small">英文100</option>
+    </select>
+  </td>
+  <td>
+    <select id="level" class="styled-select" onchange="quiz.select_change()">
+      <option value="level1" class="service-small">1</option>
+      <option value="level2" class="service-small">2</option>
+    </select>
+  </td>
+
+  </tr>
+    </table>
+  </div>
+    <div id="quizWrap"></div>
+  </body>
+</html>
