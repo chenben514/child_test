@@ -3,34 +3,97 @@
   margin: 0 auto;
 }
 
-.styled-select {
-    overflow: hidden;
-    height: 36px;
-    float: left;
-    width: 80px;
-    margin-right: 10px;
+@media all and (min-width: 580px) {
+    /* Apply first set of CSS rules */
+    .styled-select {
+        font-size:20px;
+        height: 36px;
+        float: left;
+        width: 110px;
+        margin-right: 10px;
+    }
+
+    .styled-select select {
+        font-size: 60px;
+        border-radius: 0;
+        border: none;
+        /* background: transparent; */
+        background-color: #4c93ba;
+        width: 380px;
+        overflow: hidden;
+        padding-top: 15px;
+        height: 70px;
+        text-indent: 10px;
+        color: #4c93ba;
+        -webkit-appearance: none;
+    }
+
+    /* (B) QUESTION */
+    #quizQn {
+      padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+
+    #quizAns label {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+}
+@media not all and (min-width: 580px) {
+    /* Apply first set of CSS rules */
+    .styled-select {
+        font-size:40px;
+        height: 66px;
+        float: left;
+        width: 220px;
+        margin-right: 10px;
+    }
+
+    .styled-select select {
+        font-size: 60px;
+        border-radius: 0;
+        border: none;
+        /* background: transparent; */
+        background-color: #4c93ba;
+        width: 580px;
+        overflow: hidden;
+        padding-top: 15px;
+        height: 70px;
+        text-indent: 10px;
+        color: #4c93ba;
+        -webkit-appearance: none;
+    }
+
+    /* (B) QUESTION */
+    #quizQn {
+      padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 60px;
+      border-radius: 10px;
+    }
+
+    #quizAns label {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 60px;
+      cursor: pointer;
+      text-align: center;
+    }
+
 }
 
-.styled-select select {
-    font-size: 34px;
-    border-radius: 0;
-    border: none;
-    /* background: transparent; */
-    background-color: #4c93ba;
-    width: 380px;
-    overflow: hidden;
-    padding-top: 15px;
-    height: 70px;
-    text-indent: 10px;
-    color: #4c93ba;
-    -webkit-appearance: none;
-}
-
-.styled-select option.service-small {
-    font-size: 28px;
-    padding: 5px;
-    background: #4c93ba;
-}
 /* (A) WRAPPER */
 #quizWrap {
   max-width: 600px;
@@ -38,14 +101,6 @@
 }
 
 
-/* (B) QUESTION */
-#quizQn {
-  padding: 20px;
-  background: #4c93ba;
-  color: #fff;
-  font-size: 24px;
-  border-radius: 10px;
-}
 
 /* (C) ANSWERS */
 #quizAns {
@@ -55,15 +110,6 @@
   grid-gap: 10px;
 }
 #quizAns input[type=radio] { display: none; }
-#quizAns label {
-  background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-}
 #quizAns label.correct {
   background: #d8ffc4;
   border: 1px solid #60a03f;

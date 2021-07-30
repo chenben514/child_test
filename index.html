@@ -7,13 +7,13 @@
     </title>
 
     <!-- (A) LOAD QUIZ CSS + JS -->
-    <link href="quiz.css?v=<?=time()?" rel="stylesheet">
+    <link href="quiz.css?v=<?=time()?>" rel="stylesheet">
     <script src="quiz.js"></script>
   </head>
   <body>
     <!-- (B) QUIZ CONTAINER -->
     <div id="quizHeader">
-    <table  border="1" cellpadding="5" style="position:relative;border:2px #00DBDB solid;text-align:rignt;right:0;">
+    <table  border="1" cellpadding="2" style="position:relative;border:2px #00DBDB solid;text-align:rignt;right:0;">
     <tr>
       <td>
     <select id="category" class="styled-select" onchange="quiz.select_change()">
