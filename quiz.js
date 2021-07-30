@@ -104,18 +104,19 @@ var quiz = {
     quiz.hAns.innerHTML = "";
     var i;
     for (i=0; i<=3; i++) {
-      let radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "quiz";
-      radio.id = "quizo" + i;
-      quiz.hAns.appendChild(radio);
+      // let radio = document.createElement("input");
+      // radio.type = "radio";
+      // radio.name = "quiz";
+      // radio.id = "quizo" + i;
+      // quiz.hAns.appendChild(radio);
       let label = document.createElement("label");
-      label.innerHTML = singQuesArr[quiz.ansList[i]];
+      label.innerHTML = "<p>"+singQuesArr[quiz.ansList[i]]+"<p>";
       quiz.ansString[i]=singQuesArr[quiz.ansList[i]];
       label.setAttribute("for", "quizo" + i);
       label.dataset.idx = i;
       label.addEventListener("click", quiz.select);
       quiz.hAns.appendChild(label);
+      // document.appendChild("<p>");
     }
   },
 
