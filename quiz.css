@@ -1,9 +1,9 @@
-#quizHeader {
-  max-width: 600px;
-  margin: 0 auto;
-}
+@media all and (min-device-width: 3000px) {
+    #quizHeader {
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-@media all and (min-device-width: 800px) {
     /* Apply first set of CSS rules */
     .styled-select {
         font-size:20px;
@@ -14,7 +14,7 @@
     }
 
     .styled-select select {
-        font-size: 60px;
+        font-size: 20px;
         border-radius: 0;
         border: none;
         /* background: transparent; */
@@ -48,25 +48,29 @@
     }
 
 }
-@media not all and (min-device-width: 800px) {
+@media not all and (min-device-width: 3000px) {
+  #quizHeader {
+    max-width: 800px;
+    margin: 0 auto;
+  }
     /* Apply first set of CSS rules */
     .styled-select {
-        font-size:40px;
-        height: 66px;
+        font-size:90px;
+        height: 110px;
         float: left;
-        width: 220px;
-        margin-right: 10px;
+        width: 390px;
+        /* margin-right: 10px; */
     }
 
     .styled-select select {
-        font-size: 60px;
+        font-size: 90px;
         border-radius: 0;
         border: none;
         /* background: transparent; */
         background-color: #4c93ba;
-        width: 580px;
+        width: 390px;
         overflow: hidden;
-        padding-top: 15px;
+        padding-top: 5px;
         height: 70px;
         text-indent: 10px;
         color: #4c93ba;
@@ -78,7 +82,7 @@
       padding: 20px;
       background: #4c93ba;
       color: #fff;
-      font-size: 60px;
+      font-size: 100px;
       border-radius: 10px;
     }
 
@@ -87,7 +91,7 @@
       border: 1px solid #eee;
       border-radius: 10px;
       padding: 10px;
-      font-size: 60px;
+      font-size: 100px;
       cursor: pointer;
       text-align: center;
     }
@@ -96,7 +100,7 @@
 
 /* (A) WRAPPER */
 #quizWrap {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
