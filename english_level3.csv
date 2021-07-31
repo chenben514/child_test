@@ -1,0 +1,10 @@
+快樂的,happy,sad,angry,tired
+悲傷的,sad,angry,tired,today
+生氣的,angry,tired,today,yes
+疲倦的,tired,today,yes,leg
+今天,today,yes,leg,milk
+是,yes,leg,milk,ox
+腿,leg,milk,ox,pig
+牛奶,milk,ox,pig,father
+公牛,ox,pig,father,mother
+豬,pig,father,mother,brother
