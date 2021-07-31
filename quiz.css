@@ -55,7 +55,7 @@
   }
     /* Apply first set of CSS rules */
     .styled-select {
-        font-size:70px;
+        font-size:60px;
         height: 110px;
         float: left;
         width: 390px;
@@ -63,7 +63,7 @@
     }
 
     .styled-select select {
-        font-size: 70px;
+        font-size: 60px;
         border-radius: 0;
         border: none;
         /* background: transparent; */
