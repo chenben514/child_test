@@ -1,244 +1,155 @@
 
-var quiz = {
-  // (A) PROPERTIES
-  // (A1) QUESTIONS & ANSWERS
-  // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
 
-  // (A2) HTML ELEMENTS
-  hWrap: null, // HTML quiz container
-  hQn: null, // HTML question wrapper
-  hAns: null, // HTML answers wrapper
-
-  // (A3) GAME FLAGS
-  now: 0, // current question
-  score: 0, // current score
-  correctPos: 0,
-  correctAnswer: null,
-  quesList: [],
-  quesArr: [],
-  ansList: [],
-  firstTime: 0,
-
-
-  // (B) INIT QUIZ HTML
-  init: function(){
-    //alert(quesArr[quesList[quiz.now]]);
-    // (B4) GO!
-    quiz.restart();
-    quiz.firstTime++;
-  },
-
-  select_change: function(){
-    quiz.restart();
-  },
-
-  restart: function(){
-
-    // (B0) Initial
-    quiz.now=0;
-    quiz.score=0;
-    quiz.correctAnswer=null;
-    quiz.quesList=[];
-    quiz.quesArr=[];
-    quiz.ansList=[];
-    quiz.ansString=["ans1","ans2","ans3","ans4"];
-
-    if (quiz.firstTime === 0) {
-      // (B1) WRAPPER
-      quiz.hWrap = document.getElementById("quizWrap");
-
-      // (B2) QUESTIONS SECTION
-      quiz.hQn = document.createElement("div");
-      quiz.hQn.id = "quizQn";
-      quiz.hWrap.appendChild(quiz.hQn);
-
-      // (B3) ANSWERS SECTION
-      quiz.hAns = document.createElement("div");
-      quiz.hAns.id = "quizAns";
-      quiz.hWrap.appendChild(quiz.hAns);
-    };
-
-    //ben_test
-    var selCategory = document.getElementById("category").value;
-    var selLevel = document.getElementById("level").value;
-    var selFile = selCategory+"_"+selLevel+".csv";
-
-    var read = new XMLHttpRequest();
-    read.open('GET', selFile, false);
-    read.setRequestHeader('Cache-Control', 'no-cache');
-    read.send();
-    var displayName = read.responseText;
-    quiz.quesArr = displayName.replace(/\r\n/g,'\n').split('\n');
-    const quesCnt = quiz.quesArr.length-1;
-
-    while(quiz.quesList.length < quesCnt){
-      var r = Math.floor(Math.random() * quesCnt);
-      if(quiz.quesList.indexOf(r) === -1) quiz.quesList.push(r);
+@media all and (min-device-width: 1000px) {
+    #quizHeader {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    var selKind=document.getElementById("kind").value;
-     if (selKind==="select"){
-       quiz.draw_select();
-     } else if (selKind==="direct"){
-       quiz.draw_direct();
-     } else {
-       alert("nothing");
-     };
-  },
-
-  // (C_1_SELECT) DRAW_SELECT QUESTION
-  draw_select: function(){
-    // (1) QUESTION
-    var singQuesArr = quiz.quesArr[quiz.quesList[quiz.now]].split(',');
-    quiz.hQn.innerHTML = "["+ (quiz.score+1) + "/" +   quiz.quesList.length.toString() + "] " + singQuesArr[0];
-    quiz.correctAnswer = singQuesArr[1];
-
-    // (2) OPTIONS
-    quiz.ansList=[];
-    quiz.correctPos=0;
-    while(quiz.ansList.length < 4){
-          var r = Math.floor(Math.random() * 4)+1;
-          if(quiz.ansList.indexOf(r) === -1) {
-              quiz.ansList.push(r);
-              if (r===1) {
-                quiz.correctPos = quiz.ansList.length -1 ;
-              }
-          }
-        }
-    // alert(quiz.ansList+"..."+quiz.correctPos);
-    quiz.hAns.innerHTML = "";
-    var i;
-    for (i=0; i<=3; i++) {
-      let label = document.createElement("label");
-      label.innerHTML = singQuesArr[quiz.ansList[i]];
-      quiz.ansString[i]=singQuesArr[quiz.ansList[i]];
-      label.setAttribute("for", "quizo" + i);
-      label.dataset.idx = i;
-      label.addEventListener("click", quiz.draw_select_answer);
-      quiz.hAns.appendChild(label);
-    }
-  },
-
-  // (C_1_ANSWER) OPTION SELECTED
-  draw_select_answer: function(){
-    // (1) DETACH ALL ONCLICK
-    let all = quiz.hAns.getElementsByTagName("label");
-    for (let label of all) {
-      label.removeEventListener("click", quiz.select);
+    .styled-check {
+        font-size:30px;
+        height:36px;
+        float: left;
+        width: 110px;
+        /* margin-right: 10px; */
     }
 
-    // (2) CHECK IF CORRECT
-//    alert("you press " + this.dataset.idx + " and correct is " + quiz.correctPos);
-    let correct = this.dataset.idx == quiz.correctPos;
-    if (correct) {
-      quiz.score++;
-      // (D3) NEXT QUESTION OR END GAME
-      quiz.now++;
-      if (quiz.score===quiz.quesList.length){
-        alert("你全部答對了!!!");
-        quiz.restart();
-      }
-      setTimeout(function(){
-        if (quiz.now < quiz.quesList.length) { quiz.draw_select(); }
-        else {
-          quiz.hQn.innerHTML = `你 ${quiz.data.length} 題全部答對了！！`;
-          quiz.hAns.innerHTML = "";
-        }
-      }, 100);
-    } else {
-      var choiceAns = quiz.ansString[this.dataset.idx];
-       alert("你答錯了。\r\n"+this.dataset.idx+quiz.correctPos+ "[問題]："+quiz.hQn.innerHTML+"\r\n[正確答案]: "+quiz.correctAnswer+"\r\n[你回答了]: "+choiceAns);
-      //  alert("你答錯了。\r\n[問題]："+quiz.hQn.innerHTML+"\r\n[正確答案]: "+quiz.correctAnswer+"\r\n[你回答了]: "+choiceAns);
-      quiz.restart();
+    /* Apply first set of CSS rules */
+    .styled-select {
+        font-size:20px;
+        height: 36px;
+        float: left;
+        width: 110px;
+        margin-right: 10px;
     }
-  },
+
+    .styled-select select {
+        font-size: 20px;
+        border-radius: 0;
+        border: none;
+        /* background: transparent; */
+        background-color: #4c93ba;
+        width: 380px;
+        overflow: hidden;
+        padding-top: 15px;
+        height: 70px;
+        text-indent: 10px;
+        color: #4c93ba;
+        -webkit-appearance: none;
+    }
+
+    /* (B) QUESTION */
+    #quizQn {
+      padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+
+    #quizAns label {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 60px;
+      font-size: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .quizDirectAns {
+      background: #FFFFE0;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 36px;a
+      cursor: pointer;
+      text-align: left;
+      height: 40px;
+      width: 760px;
+    }
+
+}
+@media not all and (min-device-width: 1000px) {
+  #quizHeader {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+    /* Apply first set of CSS rules */
+    .styled-select {
+        font-size:60px;
+        height: 110px;
+        float: left;
+        width: 420px;
+        /* margin-right: 10px; */
+    }
+
+    .styled-select select {
+        font-size: 60px;
+        border-radius: 0;
+        border: none;
+        /* background: transparent; */
+        background-color: #4c93ba;
+        width: 420px;
+        overflow: hidden;
+        padding-top: 5px;
+        height: 70px;
+        text-indent: 10px;
+        color: #4c93ba;
+        -webkit-appearance: none;
+    }
+
+    /* Apply first set of CSS rules */
+
+    /* (B) QUESTION */
+    #quizQn {
+      padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 100px;
+      border-radius: 10px;
+    }
+
+    #quizAns label {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 60px;
+      font-size: 100px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+}
+
+/* (A) WRAPPER */
+#quizWrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+https://github.com/chenben514/child_test/blob/master/quiz.js
 
 
+/* (C) ANSWERS */
+#quizAns {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+#quizAns input[type=radio] { display: none; }
+#quizAns label.correct {
+  background: #d8ffc4;
+  border: 1px solid #60a03f;
+}
+#quizAns label.wrong {
+  background: #ffe8e8;
+  border: 1px solid #c78181;
+}
 
-  // (C_2_DIRECT) DRAW_DIRECT QUESTION
-  draw_direct: function(){
-    // (1) QUESTION
-    var singQuesArr = quiz.quesArr[quiz.quesList[quiz.now]].split(',');
-    quiz.hQn.innerHTML = "["+ (quiz.score+1) + "/" +   quiz.quesList.length.toString() + "] " + singQuesArr[0];
-    quiz.correctAnswer = singQuesArr[1];
 
-    // (2) OPTIONS
-    quiz.hAns.innerHTML = "";
-    var input = document.createElement("input");
-    input.type = "text";
-    input.className = "quizDirectAns"; // set the CSS class
-    quiz.hAns.appendChild(input);
-    document.querySelector(".quizDirectAns").focus();
-  },
-
-  //
-  // // (C_2_ANSWER) OPTION ANSWERED
-  // draw_select: function(){
-  //   // (1) DETACH ALL ONCLICK
-  //   let all = quiz.hAns.getElementsByTagName("label");
-  //   for (let label of all) {
-  //     label.removeEventListener("click", quiz.select);
-  //   };
-
-    // (2) CHECK IF CORRECT
-//    alert("you press " + this.dataset.idx + " and correct is " + quiz.correctPos);
-//     let correct = this.dataset.idx == quiz.correctPos;
-//     if (correct) {
-//       quiz.score++;
-//       // (D3) NEXT QUESTION OR END GAME
-//       quiz.now++;
-//       if (quiz.score===quiz.quesList.length){
-//         alert("你全部答對了!!!");
-//         quiz.restart();
-//       }
-//       setTimeout(function(){
-//         if (quiz.now < quiz.quesList.length) { quiz.draw(); }
-//         else {
-//           quiz.hQn.innerHTML = `你 ${quiz.data.length} 題全部答對了！！`;
-//           quiz.hAns.innerHTML = "";
-//         }
-//       }, 100);
-//     } else {
-//       var choiceAns = quiz.ansString[this.dataset.idx];
-//        alert("你答錯了。\r\n"+this.dataset.idx+quiz.correctPos+ "[問題]："+quiz.hQn.innerHTML+"\r\n[正確答案]: "+quiz.correctAnswer+"\r\n[你回答了]: "+choiceAns);
-//       //  alert("你答錯了。\r\n[問題]："+quiz.hQn.innerHTML+"\r\n[正確答案]: "+quiz.correctAnswer+"\r\n[你回答了]: "+choiceAns);
-//       quiz.restart();
-//     }
-//   }
-
- };
-
- document.addEventListener("keypress", function(event) {
-   if (event.key === "Enter") {
-     //alert(document.querySelector(".quizDirectAns").value);
-     //alert(quiz.correctAnswer);
-     let yourAnswer = document.querySelector(".quizDirectAns").value;
-     let correct = yourAnswer == quiz.correctAnswer;
-     if (correct) {
-          quiz.score++;
-           // (D3) NEXT QUESTION OR END GAME
-          quiz.now++;
-          if (quiz.score===quiz.quesList.length){
-             alert("你全部答對了!!!");
-             quiz.restart();
-           }
-          setTimeout(function(){
-             if (quiz.now < quiz.quesList.length) { quiz.draw_direct(); }
-             else {
-               quiz.hQn.innerHTML = `你 ${quiz.data.length} 題全部答對了！！`;
-               quiz.hAns.innerHTML = "";
-             }
-           }, 100);
-         } else {
-            alert("你答錯了。\r\n"+ "[問題]："+quiz.hQn.innerHTML+"\r\n[正確答案]: "+quiz.correctAnswer+"\r\n[你回答了]: "+yourAnswer);
-           //  alert("你答錯了。\r\n[問題]："+quiz.hQn.innerHTML+"\r\n[正確答案]: "+quiz.correctAnswer+"\r\n[你回答了]: "+choiceAns);
-           quiz.restart();
-         }
-   }else{
-     console.log("hello");
-     //consoalert(event.key);
-   }
-
- });
-
-window.addEventListener("load", quiz.init);
+/* (D) BODY... DOES NOT QUITE MATTER */
+html, body {
+  background: #74b6db;
+  font-family: arial, sans-serif;
+}
