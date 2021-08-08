@@ -121,7 +121,7 @@
 
  
  .quizDirectAns {
-      background: #FFFFE0;
+      background: red;
       border: 1px solid #eee;
       border-radius: 10px;
       padding: 60px;
