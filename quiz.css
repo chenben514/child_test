@@ -1,7 +1,16 @@
+
 @media all and (min-device-width: 1000px) {
     #quizHeader {
       max-width: 800px;
       margin: 0 auto;
+    }
+
+    .styled-check {
+        font-size:30px;
+        height:36px;
+        float: left;
+        width: 110px;
+        /* margin-right: 10px; */
     }
 
     /* Apply first set of CSS rules */
@@ -47,6 +56,18 @@
       text-align: center;
     }
 
+    .quizDirectAns {
+      background: #FFFFE0;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 36px;a
+      cursor: pointer;
+      text-align: left;
+      height: 40px;
+      width: 760px;
+    }
+
 }
 @media not all and (min-device-width: 1000px) {
   #quizHeader {
@@ -76,6 +97,8 @@
         color: #4c93ba;
         -webkit-appearance: none;
     }
+
+    /* Apply first set of CSS rules */
 
     /* (B) QUESTION */
     #quizQn {
