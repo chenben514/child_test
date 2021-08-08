@@ -1,4 +1,3 @@
-
 var quiz = {
   // (A) PROPERTIES
   // (A1) QUESTIONS & ANSWERS
