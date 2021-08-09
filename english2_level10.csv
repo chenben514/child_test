@@ -1,0 +1,10 @@
+公車,bus,bee,make,is
+蜜蜂,bee,make,is,ghost
+製作,make,is,ghost,spider
+是（第三人稱單數）,is,ghost,spider,lantern
+鬼,ghost,spider,lantern,mask
+蜘蛛,spider,lantern,mask,smell
+燈籠,lantern,mask,smell,give
+面具,mask,smell,give,hot
+聞起來,smell,give,hot,cat
+給予,give,hot,cat,have

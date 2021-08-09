@@ -1,0 +1,10 @@
+現在,now,play,cold,warm
+玩,play,cold,warm,good
+寒冷的,cold,warm,good,hot
+溫暖的,warm,good,hot,cap
+好的,good,hot,cap,pet
+熱的,hot,cap,pet,cup
+無邊帽,cap,pet,cup,little
+寵物,pet,cup,little,father
+茶杯,cup,little,father,mother
+小的,little,father,mother,brother

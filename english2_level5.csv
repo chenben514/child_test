@@ -1,0 +1,10 @@
+教師,teacher,student,doctor,nurse
+學生,student,doctor,nurse,cook
+醫生,doctor,nurse,cook,yummy
+護士,nurse,cook,yummy,sit
+煮飯,cook,yummy,sit,shake
+好吃的,yummy,sit,shake,hand
+坐,sit,shake,hand,smart
+搖動,shake,hand,smart,box
+手,hand,smart,box,and
+聰明的,smart,box,and,for
