@@ -1,0 +1,13 @@
+你是一個醫生嗎？;Are you a doctor ?
+不，我不是。;No, I'm not.
+我是一個廚師。;I'm a cook.
+他是一個司機嗎？;Is he a driver?
+不，他不是。;No, he's not.
+他是一個警察。;He's a police officer.
+___ you a cook ?;Are; Am; Is; are;
+Yes, I ___.; am; are; is; 're;
+No, I__ not.; 'm; are; is; 're;
+___ he a drive ?;Is; Are; Am; are;
+___ she a nurse ?;Is; Are; Am; are;
+Yes, He ___.;is; am; are; 're;
+No, She___ not;'s; am; are; 're;
